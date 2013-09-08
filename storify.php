@@ -6,15 +6,40 @@ Description: Brings the power of Storify, the popular social media storytelling 
 Version: 1.0.5
 Author: Storify
 Author URI: http://storify.com
-License: GPL2
+License: GPL2 or later
 */
+
+/*  Storify WordPress Plugin
+ *
+ *  Brings the power of Storify, the popular social media storytelling platform to your WordPress site
+ *
+ *  Copyright (C) 2012-2013 Storify
+ *
+ *  This program is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 2 of the License, or
+ *  (at your option) any later version.
+ *
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ *  @copyright 2012-2013
+ *  @license GPL v2 or later
+ *  @version 1.0.5
+ *  @package Storify
+ *  @author Storify
+ */
 
 /**
  * Main Storify Class, register's WordPress hooks on construct and provide's plugin's main functionality
  * Should not be constructed more than once per page load.
  * All methods should be globally accessible via `$WP_Storify`, or via WP_Storify::$instance
  * @since 1.0
- * @author Benjamin J. Balter ( ben.balter.com | ben@balter.com )
  */
 class WP_Storify {
 
@@ -1108,19 +1133,19 @@ class WP_Storify {
 		//loop through all previosly published stories and add post meta
 		//prevents description from being added on subsequent updates
 		if ( $db_version < '1.0.4' ) {
-		
+
 			$posts = get_posts( array( 'numberposts' => -1 ) );
-		
+
 			foreach ( $posts as $post ) {
-		
+
 				if ( !$this->is_storify_post( $post ) )
 					continue;
-		
+
 				update_post_meta( $post->ID, $this->description_meta, true );
-		
+
 			}
 		}
-		
+
 		//incremement DB version number
 		update_option( $this->version_option, $this->version );
 
