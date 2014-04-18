@@ -31,10 +31,10 @@ class WP_Storify {
 
 	//regex to parse permalink from callback
 	//(should be nearly identical to $permalink_regex, but with ^ and $ to prevent other strings
-	public $permalink_callback_regex = '#^https?://(www\.)?storify.com/([A-Z0-9-_]+)/([A-Z0-9-]+)(/)?$#i';
+	public $permalink_callback_regex = '#^(https?:)?//(www\.)?storify.com/([A-Z0-9-_]+)/([A-Z0-9-]+)(/)?$#i';
 
 	//embed code, %1$s is username, %2$s is story slug
-	public $embed_code = '<script src="https://storify.com/%1$s/%2$s.js?header=false&sharing=false&border=false"></script>';
+	public $embed_code = '<script src="//storify.com/%1$s/%2$s.js?header=false&sharing=false&border=false"></script>';
 
 	//link to edit story, %1$s is username, %2$s is story slug
 	public $edit_link = 'https://storify.com/%1$s/%2$s/edit';
@@ -429,6 +429,7 @@ class WP_Storify {
 		if ( $ttl == null )
 			$ttl = apply_filters( 'storify_ttl', $this->ttl, 'api_query' );
 
+
 		$cache_key = 'storify_api_' . md5( $query );
 
 		if ( $data = get_transient( $cache_key ) )
@@ -576,6 +577,7 @@ class WP_Storify {
 		//cap check
 		if ( !current_user_can( 'edit_posts' ) )
 			return $title;
+
 
 		$permalink = apply_filters( 'storify_permalink', $_GET[ $this->permalink_query_arg ] );
 
@@ -759,10 +761,10 @@ class WP_Storify {
 	 */
 	function maybe_add_http( $url ) {
 
-		if ( strpos( $url, 'http://' ) !== false )
+		if ( strpos( $url, '//' ) !== false )
 			return $url;
 
-		return 'http://' . $url;
+		return '//' . $url;
 
 	}
 
