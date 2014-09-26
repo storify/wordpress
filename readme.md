@@ -1,15 +1,15 @@
 # Storify #
 **Contributors:** Storify  
-**Tags:** storify, social media, embed  
+**Tags:** storify, social media, embed, twitter, Facebook, YouTube, Flickr,  instagram, soundcloud, stocktwits, breakingnews, Post, posts, images, links, disqus, tumblr, rss 
 **Requires at least:** 3.2  
-**Tested up to:** 3.4  
-**Stable tag:** 1.0.4  
+**Tested up to:** 3.9  
+**Stable tag:** 1.0.6 
 
 Brings the power of Storify, the popular social media storytelling platform to your WordPress site
 
 ## Description ##
 
-Turn what people post on social networks into compelling stories. With [Storify](http://storify.com), you collect the best photos, video, Tweets and more from around the web and publish them as simple, beautiful stories embedded into your WordPress posts and pages. It's the best way to chronicle an event through what people share, whether it's a conference, wedding, election or natural disaster.
+Turn what people post on social networks into compelling stories. With [Storify](https://storify.com), you collect the best photos, video, Tweets and more from around the web and publish them as simple, beautiful stories embedded into your WordPress posts and pages. It's the best way to chronicle an event through what people share, whether it's a conference, wedding, election or natural disaster.
 
 **Features:**
 
@@ -32,11 +32,11 @@ There are three ways:
 
 1. To create and publish a new story, simply click the Storify menu icon on the left side of your WordPress dashboard 
 2. To add an existing story from your account, while editing or creating a post, click the Storify icon in the rich editor toolbar (the same toolbar where you select bold, italic, etc.), and select the story from your account you'd like to insert 
-3. You can always add any existing story to a post, simply by including the story's full link on it's own line, e.g., http://storify.com/username/story-title
+3. You can always add any existing story to a post, simply by including the story's full link on it's own line, e.g., https://storify.com/username/story-title
 
 ### Do I need a Storify account to use this plugin? ###
 
-You'll need a Storify account to use all of the plugin's features. If you don't already have an account you can [sign up now](http://storify.com) using your Facebook or Twitter account, otherwise, you will be prompted to create an account prior to publishing your first story.
+You'll need a Storify account to use all of the plugin's features. If you don't already have an account you can [sign up now](https://storify.com) using your Facebook or Twitter account, otherwise, you will be prompted to create an account prior to publishing your first story.
 
 ### I am a developer, can I customize the functionality of the plugin? ###
 
@@ -44,7 +44,7 @@ Yes. There are more than 20 API endpoints for developers to hook into using Word
 
 ### Can I extend the plugin's functionality or integrate it with my own, existing plugin? ###
 
-Yes. There are several public methods available to help developers quickly and easily leverage the Storify API such as `get_story()` and `get_user_data()`. Each is documented more thoroughly within the code itself, and can be called, for example, as `$WP_Storify->get_story( 'http://storify.com/url-to/a-story' );` to return a story object containing the story's embed code and associated metadata.
+Yes. There are several public methods available to help developers quickly and easily leverage the Storify API such as `get_story()` and `get_user_data()`. Each is documented more thoroughly within the code itself, and can be called, for example, as `$WP_Storify->get_story( 'https://storify.com/url-to/a-story' );` to return a story object containing the story's embed code and associated metadata.
 
 ### Are requests to the Storify API cached at all? ###
 
@@ -79,6 +79,12 @@ Yes and no. The Storify plugin is ready to be translated, but has not been trans
 
 
 ## Changelog ##
+
+### 1.0.6 ###
+* Support for SSL references
+
+### 1.0.5 ###
+* Fix for non-javascript alternative link not properly closing the `noscript` tag and breaking some themes
 
 ### 1.0.4 ###
 * Story description now automatically prepended to post body when story URL is added to the post directly
