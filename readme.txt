@@ -66,6 +66,9 @@ Yes and no. The Storify plugin is ready to be translated, but has not been trans
 
 == Changelog ==
 = 1.0.8 =
+* Addressed a bug in some versions of Wordpress.
+
+= 1.0.7 =
 * Bug Fixes for Dialog.php error as well as editor button issues in some environments.
 
 = 1.0.6 =
