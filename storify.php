@@ -6,9 +6,6 @@ Description: Brings the power of Storify, the popular social media storytelling 
 Version: 1.0.7
 Author: Storify
 Author URI: https://storify.com
-
-Modified for WPCOM VIP by Rinat Khaziev <rinat@doejo.com>
-
 License: GPL2
 */
 
@@ -91,10 +88,7 @@ class WP_Storify {
 		//enqueue css & js
 		add_action( 'admin_print_styles', array( &$this, 'enqueue_style' ) );
 		add_action( 'admin_enqueue_scripts', array( &$this, 'enqueue_script' ) );
-		
-		// VIP Customization
-		add_action( 'wp_ajax_storify_dialog', array( &$this, 'dialog_button' ) );
-	        //add_action( 'wp_ajax_storify_dialog', array( &$this, 'dialog' ) ); //eliminated from VIP merge
+		add_action( 'wp_ajax_storify_dialog', array( &$this, 'dialog' ) );
 
 		//i18n
 		add_action( 'admin_enqueue_scripts', array( &$this, 'localize_scripts' ) );
@@ -127,9 +121,10 @@ class WP_Storify {
 		add_action( 'storify_edit', array( &$this, 'cache_purge' ), 10, 1 );
 
 		//upgrade DB
-		//add_action( 'admin_init', array( &$this, 'upgrade' ) ); // VIP (2012-11-08): disabled as it kills sites with really large numbers of posts
+		add_action( 'admin_init', array( &$this, 'upgrade' ) );
 
 	}
+
 
 	/**
 	 * Callback function to handle the url to embed code replacement
@@ -492,8 +487,8 @@ class WP_Storify {
 
 		if ( $userid == null )
 			$userid = get_current_user_id();
-		//  use user_attribute on WPCOM 
-		return apply_filters( 'storify_login', get_user_attribute( $userid,  $this->login_meta, $userid ), $userid );
+
+		return apply_filters( 'storify_login', get_user_option( $this->login_meta, $userid ), $userid );
 
 	}
 
@@ -987,46 +982,13 @@ class WP_Storify {
 		if ( !current_user_can('edit_posts') && !current_user_can('edit_pages') )
 			return;
 
-		if ( get_user_attribute( get_current_user_id(), 'rich_editing' ) == 'true' && user_can_richedit()) {
+		if ( get_user_option('rich_editing') == 'true') {
 			add_filter( 'mce_external_plugins', array( &$this, 'add_tinymce_plugin' ) );
 			add_filter( 'mce_buttons', array( &$this, 'add_tinymce_button' ) );
 		}
 
-		add_action('wp_ajax_dialog_button', array( &$this, 'dialog_button' ) );
-
-	}
-	
-	/**
-	 * rinatkhaziev: This is modified version of dialog.php
-	 *
-	 */
-	function dialog_button() {
-		define( 'IFRAME_REQUEST' , true );
-		if ( 	!current_user_can( 'edit_posts' ) )
-			wp_die( __("You are not allowed to be here") ); //native WP string, no need to i18n
-			
-		@header('Content-Type: ' . get_option('html_type') . '; charset=' . get_option('blog_charset'));
-
-		wp_enqueue_script( 'tiny_mce_popup.js', includes_url( 'js/tinymce/tiny_mce_popup.js' ) );	
-			
-		if ( 	isset( $_POST['login'] ) 
-				&& isset( $_POST['_wpnonce'] ) 
-				&& wp_verify_nonce( $_POST['_wpnonce'], 'storify_login' ) 
-			) {
-			
-			$login = apply_filters( 'storify_login', $_POST['login'] );
-			if ( $login )
-				update_user_attribute( get_current_user_id(), $this->login_meta, $login );
-			else
-				delete_user_attribute( get_current_user_id(), $this->login_meta );
-			
 	}
 
-		$callback = ( $this->get_login() ) ? 'insert_story_dialog' : 'login_dialog';
-		
-		wp_iframe( array( &$this, $callback ) );
-		exit;
-	}
 
 	/**
 	 * Callback to filter tinyMCE button array and insert storify button
@@ -1069,9 +1031,6 @@ class WP_Storify {
 
 	/**
 	 * Registers Javascript file(s)
-	 *
-	 * Modified by rinatkhaziev:
-	 * Added tiny_mce_popup.js enqueue call from dialog.php
 	 */
 	function enqueue_script() {
 
