@@ -3,11 +3,7 @@ Contributors: Storify
 Tags: storify, social media, embed, twitter, Facebook, YouTube, Flickr,  instagram, soundcloud, stocktwits, breakingnews, Post, posts, images, links, disqus, tumblr, rss 
 Requires at least: 3.2
 Tested up to: 4.2
-<<<<<<< HEAD
 Stable tag: 1.0.9
-=======
-Stable tag: 1.0.8
->>>>>>> 24679e1bc97f816a77255ed5cce08db7cb6c5756
 
 Brings the power of Storify, the popular social media storytelling platform to your WordPress site
 
