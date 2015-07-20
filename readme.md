@@ -3,7 +3,7 @@
 **Tags:** storify, social media, embed, twitter, Facebook, YouTube, Flickr,  instagram, soundcloud, stocktwits, breakingnews, Post, posts, images, links, disqus, tumblr, rss 
 **Requires at least:** 3.2  
 **Tested up to:** 4.2  
-**Stable tag:** 1.0.7
+**Stable tag:** 1.0.8
 
 Brings the power of Storify, the popular social media storytelling platform to your WordPress site
 
@@ -79,7 +79,7 @@ Yes and no. The Storify plugin is ready to be translated, but has not been trans
 
 
 ## Changelog ##
-### 1.0.7 ###
+### 1.0.8 ###
 * Bug Fixes for Dialog.php error as well as editor button issues in some environments.
 
 ### 1.0.6 ###
