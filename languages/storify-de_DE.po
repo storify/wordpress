@@ -1,0 +1,91 @@
+# Copyright (C) 2012 Storify
+# This file is distributed under the same license as the Storify package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Storify 1.0.1\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/storify\n"
+"POT-Creation-Date: 2015-10-28 11:37+0100\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2015-10-28 11:41+0100\n"
+"Language-Team: \n"
+"X-Generator: Poedit 1.8.6\n"
+"Last-Translator: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: de_DE\n"
+
+#: dialog.php:16
+msgid "You are not allowed to be here"
+msgstr "Hier dürfen Sie nicht sein"
+
+#: storify.php:458
+msgid "Insert Story"
+msgstr "Story eingeben"
+
+#: storify.php:472
+msgid "Older Stories"
+msgstr "Ältere Stories"
+
+#: storify.php:475
+msgid "Showing recent stories created by %s."
+msgstr "Zeige neueste Stories von %s an."
+
+#: storify.php:476
+msgid "Change account?"
+msgstr "Konto wechseln?"
+
+#: storify.php:492
+msgid "Storify Login"
+msgstr "Storify Anmeldung"
+
+#: storify.php:493
+msgid "Please enter your Storify login to continue"
+msgstr "Bitte geben Sie Ihren Storify-Benutzernamen an, um fortzufahren"
+
+#: storify.php:497
+msgid "Storify Login:"
+msgstr "Storify-Benutzername:"
+
+#: storify.php:500
+msgid ""
+"Don't have a login? <a href=\"https://storify.com\" target=\"_blank\">Sign "
+"up for free</a>."
+msgstr ""
+"Sie haben keinen Benutzernamen? <a href=\"https://storify.com\" target="
+"\"_blank\">Hier umsonst anmelden</a>."
+
+#: storify.php:547
+msgid "An error occurred while publishing the story"
+msgstr "Ein Fehler trat bei der Veröffentlichung dieser Story auf"
+
+#. Plugin Name of the plugin/theme
+#. Author of the plugin/theme
+#: storify.php:795 storify.php:824
+msgid "Storify"
+msgstr "Storify"
+
+#: storify.php:814
+msgid "Edit Story"
+msgstr "Story bearbeiten"
+
+#: storify.php:933
+msgid "Insert story from your Storify account"
+msgstr "Story von Ihrem Storify-Konto einfügen"
+
+#: storify.php:934
+msgid "Storify &mdash; Insert Story"
+msgstr "Storify &mdash; Story einfügen"
+
+#. Plugin URI of the plugin/theme
+#. Author URI of the plugin/theme
+msgid "https://storify.com"
+msgstr "https://storify.com"
+
+#. Description of the plugin/theme
+msgid ""
+"Brings the power of Storify, the popular social media storytelling platform "
+"to your WordPress site"
+msgstr ""
+"Bringt die Kraft von Storify, der beliebten Social Media Storytelling "
+"Plattform, auf Ihre WordPress-Seite"
